@@ -1,0 +1,37 @@
+{
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "semi": [
+      2,
+      "always"
+    ],
+    "space-before-function-paren": [2, "never"],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "simple-import-sort/sort": "error",
+    "sort-imports": "off",
+    "import/order": "off",
+    "import/no-cycle": [2],
+    "@typescript-eslint/no-use-before-define":"off",
+    "react/display-name": [0, { "ignoreTranspilerName": false }]
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "jest",
+    "simple-import-sort",
+    "import",
+    "react-hooks"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+  "settings": {
+    "react": {
+        "version": "latest"
+    }
+  }
+}

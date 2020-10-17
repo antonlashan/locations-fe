@@ -1,0 +1,70 @@
+{
+  "name": "geowox-fe",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
+    "cross-env": "^7.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "2.1.2",
+    "react-scripts": "3.4.3",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "setEnv": "node ./src/scripts/replace-env.js",
+    "setEnv:dev": "cross-env APP_ENV=dev yarn setEnv",
+    "setEnv:staging": "cross-env APP_ENV=staging yarn setEnv",
+    "setEnv:prod": "cross-env APP_ENV=prod yarn setEnv",
+    "start": "yarn setEnv:dev && react-scripts start",
+    "build:dev": "yarn setEnv:dev && react-scripts build",
+    "build:staging": "yarn setEnv:staging && react-scripts build",
+    "build:prod": "yarn setEnv:prod && react-scripts build",
+    "test": "react-scripts test",
+    "tsc": "tsc --noEmit"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn tsc && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{json,css,scss,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
