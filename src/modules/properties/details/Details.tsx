@@ -11,8 +11,8 @@ export const Details = ({ propertyData }: DetailsProps) => {
   // const {propertyType, bedrooms,bathrooms} = propertyData;
   const [state, setState] = React.useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const toggleDetailDrawer = (open: boolean) => (
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _: React.KeyboardEvent | React.MouseEvent
   ) => {
     setState(open);
