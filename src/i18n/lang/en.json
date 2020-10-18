@@ -1,0 +1,34 @@
+{
+  "module.properties.details.detail.address": {
+    "defaultMessage": "Address",
+    "description": "Property address"
+  },
+  "module.properties.details.detail.baths": {
+    "defaultMessage": "Baths",
+    "description": "No of bathrooms"
+  },
+  "module.properties.details.detail.beds": {
+    "defaultMessage": "Beds",
+    "description": "No of bedrooms"
+  },
+  "module.properties.details.detail.latitude": {
+    "defaultMessage": "Latitude",
+    "description": "Latitude"
+  },
+  "module.properties.details.detail.longitude": {
+    "defaultMessage": "Longitude",
+    "description": "Longitude"
+  },
+  "module.properties.details.detail.price": {
+    "defaultMessage": "Price",
+    "description": "Property price"
+  },
+  "module.properties.details.detail.propertyType": {
+    "defaultMessage": "Property type",
+    "description": "Property type"
+  },
+  "module.properties.details.detail.sqm": {
+    "defaultMessage": "Sqm",
+    "description": "Squre meter"
+  }
+}

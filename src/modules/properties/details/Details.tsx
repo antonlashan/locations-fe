@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   drawerHeaderWraper: {
     position: 'fixed',
     zIndex: 2,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.secondary.light,
     width: '100%',
     maxWidth: 450,
   },
@@ -63,16 +63,18 @@ export const Details = ({ propertyData }: DetailsProps) => {
       >
         <div className={classes.drawerHeaderWraper}>
           <div className={classes.drawerHeader}>
-            <Typography variant='subtitle1' color='primary'>
-              Property Details
-            </Typography>
+            <Box ml={2}>
+              <Typography variant='subtitle1' color='inherit'>
+                Property Details
+              </Typography>
+            </Box>
             <IconButton onClick={toggleDetailDrawer(false)}>
               <ChevronLeft />
             </IconButton>
           </div>
           <Divider />
         </div>
-        <Box p={1}>
+        <Box p={2}>
           {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             <Detail data={detail!} />

@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   routeLeftMargin: {
     marginLeft: theme.spacing(2),
+    fontWeight: theme.typography.fontWeightBold,
   },
 }));
 
@@ -24,7 +25,7 @@ const Topbar = () => {
     <AppBar>
       <Toolbar>
         <RouterLink to={R_HOME}>
-          <Typography variant='h5' classes={{ h5: classes.rootHref }}>
+          <Typography variant='h6' classes={{ h6: classes.rootHref }}>
             Geowox
           </Typography>
         </RouterLink>

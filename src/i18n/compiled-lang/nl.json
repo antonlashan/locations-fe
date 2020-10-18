@@ -1,0 +1,50 @@
+{
+  "module.properties.details.detail.address": [
+    {
+      "type": 0,
+      "value": "Adres"
+    }
+  ],
+  "module.properties.details.detail.baths": [
+    {
+      "type": 0,
+      "value": "Badkamers"
+    }
+  ],
+  "module.properties.details.detail.beds": [
+    {
+      "type": 0,
+      "value": "Slaapkamers"
+    }
+  ],
+  "module.properties.details.detail.latitude": [
+    {
+      "type": 0,
+      "value": "Breedtegraad"
+    }
+  ],
+  "module.properties.details.detail.longitude": [
+    {
+      "type": 0,
+      "value": "Longitude"
+    }
+  ],
+  "module.properties.details.detail.price": [
+    {
+      "type": 0,
+      "value": "Price"
+    }
+  ],
+  "module.properties.details.detail.propertyType": [
+    {
+      "type": 0,
+      "value": "Property type"
+    }
+  ],
+  "module.properties.details.detail.sqm": [
+    {
+      "type": 0,
+      "value": "Vierkante meter"
+    }
+  ]
+}

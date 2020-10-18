@@ -9,9 +9,12 @@
     "@react-google-maps/api": "^1.13.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-intl": "^5.8.6",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "@formatjs/cli": "^2.13.2",
+    "@formatjs/ts-transformer": "^2.11.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -32,7 +35,7 @@
     "lint-staged": ">=10",
     "prettier": "2.1.2",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "^4.0.3"
   },
   "scripts": {
     "setEnv": "node ./src/scripts/replace-env.js",
@@ -44,7 +47,10 @@
     "build:staging": "yarn setEnv:staging && react-scripts build",
     "build:prod": "yarn setEnv:prod && react-scripts build",
     "test": "react-scripts test",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "i18n:extract": "formatjs extract 'src/**/*.ts*' --out-file src/i18n/lang/en.json",
+    "i18n:compile:en": "formatjs compile src/i18n/lang/en.json --ast --out-file src/i18n/compiled-lang/en.json",
+    "i18n:compile:nl": "formatjs compile src/i18n/lang/nl.json --ast --out-file src/i18n/compiled-lang/nl.json"
   },
   "eslintConfig": {
     "extends": "react-app"
