@@ -1,31 +1,31 @@
-import { Button, Drawer, Typography } from '@material-ui/core';
+import { Button, Drawer } from '@material-ui/core';
 import React from 'react';
 
 import { PropertyData } from '../interface';
+import { LatLng, Map } from './Map';
 
 interface DetailsProps {
   propertyData: PropertyData[];
 }
 
 export const Details = ({ propertyData }: DetailsProps) => {
-  // const {propertyType, bedrooms,bathrooms} = propertyData;
   const [state, setState] = React.useState(false);
-
-  const toggleDetailDrawer = (open: boolean) => (
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _: React.KeyboardEvent | React.MouseEvent
-  ) => {
+  const [locations, setLocations] = React.useState<LatLng[]>([]);
+  const toggleDetailDrawer = (open: boolean) => () => {
     setState(open);
-    // console.log(propertyData);
   };
 
   React.useEffect(() => {
-    console.log(propertyData);
+    const locs = propertyData.reduce((locArr: LatLng[], name) => {
+      locArr.push({ lat: name.lat, lng: name.lon });
+      return locArr;
+    }, []);
+    setLocations(locs);
   }, [propertyData]);
 
   return (
     <>
-      <Typography variant='h5'>Details</Typography>
+      <Map locations={locations} />
       <Button onClick={toggleDetailDrawer(true)}>Button</Button>
       <Drawer open={state} onClose={toggleDetailDrawer(false)}>
         test
