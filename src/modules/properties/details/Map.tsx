@@ -7,26 +7,20 @@ import {
 import React from 'react';
 
 import { env } from '../../../environments/env';
-
-export interface LatLng {
-  lat: number;
-  lng: number;
-}
+import { PropertyData } from '../interface';
 
 interface MapProps {
-  locations: LatLng[];
+  locations: PropertyData[];
+  onMarkerClick: (loc: PropertyData) => void;
 }
 
-const containerStyle = {
+const containerStyle: React.CSSProperties = {
   width: '100%',
   height: 'calc(100vh - 100px)',
+  maxHeight: '600px',
 };
 
-const createKey = (location: LatLng) => {
-  return location.lat + location.lng;
-};
-
-export const Map = ({ locations }: MapProps) => {
+export const GMap = ({ locations, onMarkerClick }: MapProps) => {
   const [map, setMap] = React.useState<google.maps.Map<Element> | null>(null);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: env.googleMapApiKey,
@@ -51,27 +45,32 @@ export const Map = ({ locations }: MapProps) => {
   const setBounds = (map: google.maps.Map<Element>) => {
     const bounds = new window.google.maps.LatLngBounds();
     locations.forEach((loc) => {
-      bounds.extend(loc);
+      bounds.extend({ lat: loc.lat, lng: loc.lon });
     });
 
     map.fitBounds(bounds);
   };
 
-  const renderMap = (latLngs: LatLng[]) => {
+  const handleMarkerClick = (loc: PropertyData) => () => {
+    onMarkerClick(loc);
+  };
+
+  const renderMap = (latLngs: PropertyData[]) => {
     return (
       <GoogleMap
         mapContainerStyle={containerStyle}
         onLoad={handleMapLoad}
         onUnmount={handleMapUnmount}
-        clickableIcons={false}
+        clickableIcons={true}
       >
         <MarkerClusterer averageCenter={true}>
           {(clusterer) =>
             latLngs.map((location) => (
               <Marker
-                key={createKey(location)}
-                position={location}
+                key={location.id}
+                position={{ lat: location.lat, lng: location.lon }}
                 clusterer={clusterer}
+                onClick={handleMarkerClick(location)}
               />
             ))
           }
