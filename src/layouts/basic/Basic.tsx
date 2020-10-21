@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   main: {
-    maxWidth: 960,
+    maxWidth: 1200,
     marginLeft: 'auto',
     marginRight: 'auto',
   },

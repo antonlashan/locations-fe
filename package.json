@@ -10,7 +10,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-intl": "^5.8.6",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "victory": "^35.3.1"
   },
   "devDependencies": {
     "@formatjs/cli": "^2.13.2",

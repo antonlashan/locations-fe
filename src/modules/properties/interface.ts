@@ -1,14 +1,9 @@
+import { EPropertyType } from '../../helpers/config';
+
 export interface FiltersState {
   propertyType: string;
   bedrooms: string;
   bathrooms: string;
-}
-
-export enum EPropertyType {
-  APARTMENT = 'APARTMENT',
-  DETACHED = 'DETACHED',
-  'SEMI-DETACHED' = 'SEMI-DETACHED',
-  TERRACED = 'TERRACED',
 }
 
 export interface PropertyData {
@@ -18,7 +13,7 @@ export interface PropertyData {
   lon: number;
   sqm: number;
   price: number | null;
-  propertyType: string;
+  propertyType: EPropertyType;
   satelliteImage: string;
   baths: number | null;
   beds: number | null;

@@ -1,5 +1,5 @@
 import { CustomSelectOption } from '../../../components/CustomSelect';
-import { EPropertyType } from '../interface';
+import { EPropertyType, PROPERTY_TYPE_LBLS } from '../../../helpers/config';
 
 export const propertyTypeOpts: CustomSelectOption[] = [
   {
@@ -8,19 +8,19 @@ export const propertyTypeOpts: CustomSelectOption[] = [
   },
   {
     value: EPropertyType.APARTMENT,
-    label: 'Apartment',
+    label: PROPERTY_TYPE_LBLS.APARTMENT,
   },
   {
     value: EPropertyType.DETACHED,
-    label: 'Detached',
+    label: PROPERTY_TYPE_LBLS.DETACHED,
   },
   {
     value: EPropertyType['SEMI-DETACHED'],
-    label: 'Semi detached',
+    label: PROPERTY_TYPE_LBLS['SEMI-DETACHED'],
   },
   {
     value: EPropertyType.TERRACED,
-    label: 'Terraced',
+    label: PROPERTY_TYPE_LBLS.TERRACED,
   },
 ];
 

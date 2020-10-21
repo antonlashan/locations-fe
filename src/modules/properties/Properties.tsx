@@ -1,4 +1,4 @@
-import { Card, CardContent, Grid } from '@material-ui/core';
+import { Card, CardContent, Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 
 import { Details } from './details/Details';
@@ -7,7 +7,37 @@ import { FiltersState, PropertyData } from './interface';
 import { propertyData } from './propertyData';
 import { Stats } from './stats/Stats';
 
+const useStyles = makeStyles((theme) => ({
+  filterCard: {
+    height: '100%',
+    alignItems: 'center',
+    display: 'flex',
+  },
+  filterCardContent: {
+    width: '100%',
+  },
+  filter: {
+    order: 2,
+    [theme.breakpoints.up('sm')]: {
+      order: 1,
+    },
+  },
+  stats: {
+    order: 1,
+    [theme.breakpoints.up('sm')]: {
+      order: 2,
+    },
+  },
+  map: {
+    order: 3,
+    [theme.breakpoints.up('sm')]: {
+      order: 3,
+    },
+  },
+}));
+
 const Properties = () => {
+  const classes = useStyles();
   const [filterVals, setFilterVals] = React.useState<FiltersState>();
   const [properties, setProperties] = React.useState<PropertyData[]>([]);
 
@@ -42,23 +72,23 @@ const Properties = () => {
 
   return (
     <Grid container spacing={2} item>
-      <Grid item xs={12} sm={9}>
-        <Card>
-          <CardContent>
+      <Grid item xs={12} sm={8} className={classes.filter}>
+        <Card className={classes.filterCard}>
+          <CardContent className={classes.filterCardContent}>
             <Filters onFilter={handleFilter} />
           </CardContent>
         </Card>
       </Grid>
 
-      <Grid item xs={12} sm={3}>
+      <Grid item xs={12} sm={4} className={classes.stats}>
         <Card>
           <CardContent>
-            <Stats />
+            <Stats data={propertyData} />
           </CardContent>
         </Card>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} className={classes.map}>
         <Card>
           <CardContent>
             <Details propertyData={properties} />
