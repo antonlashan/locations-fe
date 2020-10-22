@@ -2,32 +2,27 @@ import { Grid } from '@material-ui/core';
 import React from 'react';
 
 import { CustomSelect } from '../../../components/CustomSelect';
-import { FiltersState } from '../interface';
+import { FilterType } from '../interface';
 import { bathroomOpts, bedroomOpts, propertyTypeOpts } from './filterData';
 
 interface FiltersProps {
-  onFilter: (data: FiltersState) => void;
+  onFilter: (data: FilterType) => void;
 }
 
 export const Filters = ({ onFilter }: FiltersProps) => {
-  const [values, setValues] = React.useState<FiltersState>({
+  const [values, setValues] = React.useState<FilterType>({
     propertyType: '',
     bedrooms: '',
     bathrooms: '',
   });
 
-  const handleChange = (prop: keyof FiltersState) => (
+  const handleChange = (prop: keyof FilterType) => (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const vals = { ...values, [prop]: event.target.value };
     setValues(vals);
     onFilter(vals);
   };
-
-  React.useEffect(() => {
-    onFilter(values);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [values]);
 
   return (
     <Grid container spacing={2} item>

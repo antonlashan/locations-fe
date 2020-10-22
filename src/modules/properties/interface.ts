@@ -1,6 +1,6 @@
 import { EPropertyType } from '../../helpers/config';
 
-export interface FiltersState {
+export interface FilterType {
   propertyType: string;
   bedrooms: string;
   bathrooms: string;
