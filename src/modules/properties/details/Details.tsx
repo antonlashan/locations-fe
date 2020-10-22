@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
   drawerHeaderWraper: {
     position: 'fixed',
     zIndex: 2,
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
     width: '100%',
     maxWidth: 450,
   },
@@ -36,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'space-between',
+  },
+  header: {
+    fontWeight: theme.typography.fontWeightBold,
   },
 }));
 
@@ -64,11 +68,15 @@ export const Details = ({ propertyData }: DetailsProps) => {
         <div className={classes.drawerHeaderWraper}>
           <div className={classes.drawerHeader}>
             <Box ml={2}>
-              <Typography variant='subtitle1' color='inherit'>
+              <Typography
+                variant='overline'
+                color='inherit'
+                classes={{ root: classes.header }}
+              >
                 Property Details
               </Typography>
             </Box>
-            <IconButton onClick={toggleDetailDrawer(false)}>
+            <IconButton onClick={toggleDetailDrawer(false)} color='inherit'>
               <ChevronLeft />
             </IconButton>
           </div>

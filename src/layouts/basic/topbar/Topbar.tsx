@@ -10,11 +10,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   rootHref: {
-    color: theme.palette.primary.contrastText,
+    color: '#fff',
   },
   routeLeftMargin: {
     marginLeft: theme.spacing(2),
     fontWeight: theme.typography.fontWeightBold,
+    color: '#fff',
   },
 }));
 
@@ -25,7 +26,7 @@ const Topbar = () => {
     <AppBar>
       <Toolbar>
         <RouterLink to={R_HOME}>
-          <Typography variant='h6' classes={{ h6: classes.rootHref }}>
+          <Typography variant='h6' classes={{ root: classes.rootHref }}>
             Geowox
           </Typography>
         </RouterLink>
@@ -33,7 +34,6 @@ const Topbar = () => {
         <RouterLink to={R_HOME}>
           <Typography
             variant='overline'
-            color='secondary'
             classes={{ root: classes.routeLeftMargin }}
           >
             Home
@@ -42,7 +42,6 @@ const Topbar = () => {
         <RouterLink to={R_PROPERTIES}>
           <Typography
             variant='overline'
-            color='secondary'
             classes={{ root: classes.routeLeftMargin }}
           >
             Properties

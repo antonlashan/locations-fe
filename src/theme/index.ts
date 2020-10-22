@@ -1,9 +1,10 @@
 import { createMuiTheme } from '@material-ui/core';
+import { pink, red } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
-  zIndex: {
-    appBar: 1200,
-    drawer: 1100,
+  palette: {
+    primary: red,
+    secondary: pink,
   },
 });
 

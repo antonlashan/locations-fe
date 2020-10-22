@@ -5,7 +5,7 @@ import { CustomSelect } from '../../../components/CustomSelect';
 import { FilterType } from '../interface';
 import { bathroomOpts, bedroomOpts, propertyTypeOpts } from './filterData';
 
-interface FiltersProps {
+export interface FiltersProps {
   onFilter: (data: FilterType) => void;
 }
 
@@ -30,6 +30,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
         <CustomSelect
           options={propertyTypeOpts}
           label='PropertyType'
+          id='propertyType'
           value={values.propertyType}
           onChange={handleChange('propertyType')}
         />
@@ -38,6 +39,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
         <CustomSelect
           options={bedroomOpts}
           label='Bedrooms'
+          id='bedrooms'
           value={values.bedrooms}
           onChange={handleChange('bedrooms')}
         />
@@ -46,6 +48,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
         <CustomSelect
           options={bathroomOpts}
           label='Bathrooms'
+          id='bathrooms'
           value={values.bathrooms}
           onChange={handleChange('bathrooms')}
         />
