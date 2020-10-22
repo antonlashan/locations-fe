@@ -31,7 +31,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
 
   return (
     <Grid container spacing={2} item>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={12}>
         <CustomSelect
           options={propertyTypeOpts}
           label='PropertyType'
@@ -39,7 +39,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
           onChange={handleChange('propertyType')}
         />
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={12}>
         <CustomSelect
           options={bedroomOpts}
           label='Bedrooms'
@@ -47,7 +47,7 @@ export const Filters = ({ onFilter }: FiltersProps) => {
           onChange={handleChange('bedrooms')}
         />
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={12}>
         <CustomSelect
           options={bathroomOpts}
           label='Bathrooms'

@@ -7,14 +7,15 @@ import { FiltersState, PropertyData } from './interface';
 import { propertyData } from './propertyData';
 import { Stats } from './stats/Stats';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   filterCard: {
-    height: '100%',
-    alignItems: 'center',
-    display: 'flex',
+    marginBottom: theme.spacing(2),
+    // height: '100%',
+    // alignItems: 'center',
+    // display: 'flex',
   },
   filterCardContent: {
-    width: '100%',
+    // width: '100%',
   },
 }));
 
@@ -54,27 +55,27 @@ const Properties = () => {
 
   return (
     <Grid container spacing={2} item>
-      <Grid item xs={12} sm={9}>
+      <Grid item xs={12} sm={4}>
         <Card className={classes.filterCard}>
           <CardContent className={classes.filterCardContent}>
             <Filters onFilter={handleFilter} />
           </CardContent>
         </Card>
-      </Grid>
 
-      <Grid item xs={12} sm={3}>
         <Card>
           <Stats data={properties} />
         </Card>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={8}>
         <Card>
-          <CardContent>
-            <Details propertyData={properties} />
-          </CardContent>
+          <Details propertyData={properties} />
         </Card>
       </Grid>
+
+      <Grid item xs={12} sm={3}></Grid>
+
+      <Grid item xs={12}></Grid>
     </Grid>
   );
 };
