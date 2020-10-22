@@ -4,17 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Setup project
 
-```
-git clone https://github.com/antonlashan/geowox-fe.git
-yarn
-```
+1. Clone repo `git clone https://github.com/antonlashan/geowox-fe.git`
+2. Install all dependencies `yarn or yarn install`
 
 ## Change environment variables
 
 Under `src/environments` folder we have 3 environments files (`dev, staging, prod`), you could change upon correct file
 
-> Note: env.ts file will be created when accessing node scripts, so please restart server when env file has been changed.
-> Create `env.ts` file if not exist, based from other env files (just copy paste file)
+> Note: env.ts file will be created when accessing node scripts, so please restart dev server when env file has been changed.
 
 ## Available Scripts
 
@@ -25,8 +22,7 @@ In the project directory, you can run:
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+And navigate to the `Properties` route (http://localhost:3000/properties)
 
 ### `yarn test`
 
@@ -42,3 +38,33 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Localization
+`yarn i18n:extract` will be extracted all i18n constants into `src/i18n/lang/en.json` file
+
+This file `src/i18n/lang/en.json` should be changed by users (maybe content writters), add translations
+
+After done translations just run this `i18n:compile:en`, then translations done
+> If you need additional translations for any other languages get a copy of a `src/i18n/lang/en.json` file and rename it. Ex: `src/i18n/lang/nl.json`  
+And do again same process
+
+And add/change locale file inside `src/index.tsx`
+```ts
+const loadLocaleData = (locale: string) => {
+  switch (locale) {
+    case 'nl':
+      return import('./i18n/compiled-lang/nl.json');
+    default:
+      return import('./i18n/compiled-lang/en.json');
+  }
+};
+```
+
+## Used technologies
+1. React with typescript
+2. React [Material-UI](https://material-ui.com) library
+3. [Format.JS](https://formatjs.io/docs/getting-started/installation) for internationalization
+4. [React Google Maps Api](https://react-google-maps-api-docs.netlify.app) for google maps
+5. [Victory](https://formidable.com/open-source/victory) for charts
+6. [loadable-components](https://github.com/gregberge/loadable-components#readme) for lazy load routes
+6. Pretier, linters, pre-commit hook [here](https://prettier.io/docs/en/precommit.html#option-1-lint-stagedhttpsgithubcomokonetlint-staged)

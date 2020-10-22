@@ -7,7 +7,7 @@ import { FiltersState, PropertyData } from './interface';
 import { propertyData } from './propertyData';
 import { Stats } from './stats/Stats';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   filterCard: {
     height: '100%',
     alignItems: 'center',
@@ -15,24 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
   filterCardContent: {
     width: '100%',
-  },
-  filter: {
-    order: 2,
-    [theme.breakpoints.up('sm')]: {
-      order: 1,
-    },
-  },
-  stats: {
-    order: 1,
-    [theme.breakpoints.up('sm')]: {
-      order: 2,
-    },
-  },
-  map: {
-    order: 3,
-    [theme.breakpoints.up('sm')]: {
-      order: 3,
-    },
   },
 }));
 
@@ -72,7 +54,7 @@ const Properties = () => {
 
   return (
     <Grid container spacing={2} item>
-      <Grid item xs={12} sm={8} className={classes.filter}>
+      <Grid item xs={12} sm={9}>
         <Card className={classes.filterCard}>
           <CardContent className={classes.filterCardContent}>
             <Filters onFilter={handleFilter} />
@@ -80,15 +62,13 @@ const Properties = () => {
         </Card>
       </Grid>
 
-      <Grid item xs={12} sm={4} className={classes.stats}>
+      <Grid item xs={12} sm={3}>
         <Card>
-          <CardContent>
-            <Stats data={propertyData} />
-          </CardContent>
+          <Stats data={properties} />
         </Card>
       </Grid>
 
-      <Grid item xs={12} className={classes.map}>
+      <Grid item xs={12}>
         <Card>
           <CardContent>
             <Details propertyData={properties} />
