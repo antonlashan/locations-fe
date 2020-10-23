@@ -53,7 +53,9 @@
     "tsc": "tsc --noEmit",
     "i18n:extract": "formatjs extract 'src/**/*.ts*' --out-file src/i18n/lang/en.json",
     "i18n:compile:en": "formatjs compile src/i18n/lang/en.json --ast --out-file src/i18n/compiled-lang/en.json",
-    "i18n:compile:nl": "formatjs compile src/i18n/lang/nl.json --ast --out-file src/i18n/compiled-lang/nl.json"
+    "i18n:compile:nl": "formatjs compile src/i18n/lang/nl.json --ast --out-file src/i18n/compiled-lang/nl.json",
+    "docker:local": "docker build -t geowox_fe .",
+    "docker:local:up": "docker run -p 80:80 geowox_fe"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -91,10 +93,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
-        "functions": 90,
-        "lines": 20,
-        "statements": 90
+        "statements": 45
       }
     }
   }

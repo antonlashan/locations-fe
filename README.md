@@ -13,6 +13,14 @@ Under `src/environments` folder we have 3 environments files (`dev, staging, pro
 
 > Note: env.ts file will be created when accessing node scripts, so please restart dev server when env file has been changed.
 
+### Change locale
+If you would need to change locale, currency, ... like variable, you could change this file
+`src/helpers/config.ts`
+```ts
+export const LOCALE = 'en'; // nl
+export const CURRENCY = 'USD'; // EUR
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -71,3 +79,13 @@ const loadLocaleData = (locale: string) => {
 5. [Victory](https://formidable.com/open-source/victory) for charts
 6. [loadable-components](https://github.com/gregberge/loadable-components#readme) for lazy load routes
 6. Pretier, linters, pre-commit hook [here](https://prettier.io/docs/en/precommit.html#option-1-lint-stagedhttpsgithubcomokonetlint-staged)
+
+
+## Steps to run docker locally
+
+- Install [docker](https://docs.docker.com/get-docker)
+  `yarn docker:local`
+- Run the docker `yarn docker:local:up`
+- open http://localhost
+
+---

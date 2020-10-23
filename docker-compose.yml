@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  geowox:
+    container_name: geowox
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - 1337:80
+    environment:
+      - CHOKIDAR_USEPOLLING=true
