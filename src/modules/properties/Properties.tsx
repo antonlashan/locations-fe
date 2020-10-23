@@ -6,22 +6,19 @@ import { Details } from './details/Details';
 import { Filters } from './filters/Filters';
 import { filterProperties, formatChartData } from './helper';
 import { FilterType, PropertyData } from './interface';
-import { propertyData } from './propertyData';
 import { Stats } from './stats/Stats';
+
+interface PropertiesProps {
+  propertyData: PropertyData[];
+}
 
 const useStyles = makeStyles((theme) => ({
   filterCard: {
     marginBottom: theme.spacing(2),
-    // height: '100%',
-    // alignItems: 'center',
-    // display: 'flex',
-  },
-  filterCardContent: {
-    // width: '100%',
   },
 }));
 
-const Properties = () => {
+export const Properties = ({ propertyData }: PropertiesProps) => {
   const classes = useStyles();
 
   const [properties, setProperties] = React.useState<PropertyData[]>(
@@ -31,8 +28,8 @@ const Properties = () => {
     formatChartData(properties)
   );
 
-  const handleFilter = (data: FilterType) => {
-    const filteredData = filterProperties(propertyData, data);
+  const handleFilter = (filter: FilterType) => {
+    const filteredData = filterProperties(propertyData, filter);
     const chartData = formatChartData(filteredData);
 
     setProperties(filteredData);
@@ -43,7 +40,7 @@ const Properties = () => {
     <Grid container spacing={2} item>
       <Grid item xs={12} sm={4}>
         <Card className={classes.filterCard}>
-          <CardContent className={classes.filterCardContent}>
+          <CardContent>
             <Filters onFilter={handleFilter} />
           </CardContent>
         </Card>
@@ -61,5 +58,3 @@ const Properties = () => {
     </Grid>
   );
 };
-
-export default Properties;

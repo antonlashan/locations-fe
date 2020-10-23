@@ -9,6 +9,9 @@ describe('<Filters />', () => {
   afterEach(cleanup);
   test('should not be called onFilter initially', () => {
     const handleFilter = jest.fn();
+
+    render(<Filters onFilter={handleFilter} />);
+
     expect(handleFilter).not.toBeCalled();
   });
 

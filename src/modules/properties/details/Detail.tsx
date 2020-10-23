@@ -11,10 +11,11 @@ import React from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
 
 import { Currency, Number } from '../../../components';
+import { PROPERTY_TYPE_LBLS } from '../../../helpers/config';
 import { PropertyData } from '../interface';
 import { StreetView } from './StreetView';
 
-interface DetailProps {
+export interface DetailProps {
   data: PropertyData;
 }
 
@@ -110,7 +111,7 @@ export const Detail = ({ data }: DetailProps) => {
               </Typography>
             </TableCell>
             <TableCell variant='footer' align='right'>
-              {data.propertyType}
+              {PROPERTY_TYPE_LBLS[data.propertyType]}
             </TableCell>
           </TableRow>
           <TableRow>

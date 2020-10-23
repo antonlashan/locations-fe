@@ -6,7 +6,7 @@ import { R_HOME, R_NOTFOUND, R_PROPERTIES } from './helpers/route-params';
 import { BasicLayout } from './layouts/basic';
 
 const Home = loadable(() => import('./modules/home/Home'));
-const Properties = loadable(() => import('./modules/properties/Properties'));
+const Properties = loadable(() => import('./modules/properties/Index'));
 
 const NotFound = loadable(() => import('./modules/not-found/NotFound'));
 
